@@ -3,17 +3,27 @@
     <a href="{{ site.baseurl }}/">
       <img src="{{ site.baseurl }}/assets/images/18f-logo-small.png" alt="18F logo">
     </a>
-    <a href="{{ site.baseurl }}/team"><li>Team</li></a>
-    <a href="{{ site.baseurl }}/projects"><li>Projects</li></a>
-    <a href="{{ site.baseurl }}/guidelines"><li>Guidelines</li></a>
+    <li class="drop"><a href="{{ site.baseurl }}/team">Team</a>
+      <ul>
+        <a href="{{ site.baseurl }}/snippets"><li>Snippets</li>
+        <a href="{{ site.baseurl }}/locations"><li>Locations</li>
+        <a href="{{ site.baseurl }}/departments"><li>Departments</li>
+        <a href="{{ site.baseurl }}/wg"><li>Working Groups</li>
+        <a href="{{ site.baseurl }}/languages"><li>Languages</li>
+        <a href="{{ site.baseurl }}/technologies"><li>Technologies</li>
+        <a href="{{ site.baseurl }}/specialties"><li>Specialties</li>
+      </ul>
+    </li>
+    <li><a href="{{ site.baseurl }}/projects">Projects</a></li>
+    <li><a href="{{ site.baseurl }}/guidelines">Guidelines</a></li>
     {% unless site.public %}
-    <a href="{{ site.baseurl }}/structure"><li>18F Structure</li></a>
-    <a href="{{ site.baseurl }}/how-to"><li>How to...</li></a>
-    <a href="{{ site.baseurl }}/tips"><li>Tips</li></a>
+    <li><a href="{{ site.baseurl }}/structure">18F Structure</a></li>
+    <li><a href="{{ site.baseurl }}/how-to">How to...</a></li>
+    <li><a href="{{ site.baseurl }}/tips">Tips</a></li>
     {% endunless %}
-    <a href="{{ site.baseurl }}/about" class="nav-break"><li>About This Site</li></a>
+    <li><a href="{{ site.baseurl }}/about" class="nav-break">About This Site</a></li>
     {% unless site.public %}
-    <a href="{{ site.baseurl }}/n00b"><li>New to 18F?</li></a>
+    <li><a href="{{ site.baseurl }}/n00b">New to 18F?</a></li>
     {% endunless %}
   </ul>
 </nav>

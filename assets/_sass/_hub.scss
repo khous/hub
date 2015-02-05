@@ -41,10 +41,35 @@ ul {
     list-style: none;
     position: absolute;
     float: left;
-  }
-  li {
-    display: inline-block;
-    font-weight: 500;
+
+    li {
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    li.drop {
+      ul {
+        position: absolute;
+        list-style: none;
+        display: none;
+        margin: 0px;
+        padding: 0px;
+        background: black;
+
+        li {
+          display: block;
+          float: none;
+          padding: 0px;
+          margin: 0.5em 0.5em 0em;
+        }
+      }
+    }
+
+    li.drop:hover {
+      ul {
+        display: block;
+      }
+    }
   }
   a {
     color: white;
