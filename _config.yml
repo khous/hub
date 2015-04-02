@@ -48,6 +48,7 @@ team_img_dir: assets/images/team
 missing_team_member_img: logo-18f.jpg
 guest_user_img: logo-18f.jpg
 
+host: 0.0.0.0
 # Editable link idea from:
 # https://github.com/blacktm/standard-jekyll-template/blob/gh-pages/_config.yml
 defaults:
