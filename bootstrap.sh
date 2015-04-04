@@ -27,6 +27,10 @@ install 'ExecJS runtime' nodejs
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 cd /vagrant
+
+#This file is supposed to be at the root according to go .___.
+cp ./vagrant_ansible_inventory_default ../
+
 ./go init 
 
 echo 'all set, rock on!'
