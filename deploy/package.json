@@ -1,0 +1,11 @@
+{
+  "name": "hub-automated-deployment",
+  "version": "1.0.0",
+  "description": "Packages necessary for the automated deployment of the hub",
+  "main": "hookshot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
