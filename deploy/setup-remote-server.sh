@@ -1,9 +1,6 @@
 #!/usr/bin/bash
 #usage sh bootstrap.sh /path/to/key-file.pem user@123.0.0.1
-cd /home/ubuntu
-
-sudo git clone https://github.com/khous/hub.git
-cd hub/deploy 
+cd /home/ubuntu/hub/deploy 
 
 echo updating package information
 sudo apt-add-repository -y ppa:brightbox/ruby-ng
@@ -41,7 +38,7 @@ sudo cp -r deploy/usr/* /usr
 sudo cp -r deploy/etc/* /etc
 
 #Install google auth proxy
-GOOGLE_AUTH_DIR_NAME=google_auth_proxy-1.1.1.darwin-amd64.go1.4.2
+GOOGLE_AUTH_DIR_NAME=google_auth_proxy-1.1.1.linux-amd64.go1.4.2
 
 wget https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME.tar.gz
 tar xvzf $GOOGLE_AUTH_DIR_NAME.tar.gz && rm $GOOGLE_AUTH_DIR_NAME.tar.gz
