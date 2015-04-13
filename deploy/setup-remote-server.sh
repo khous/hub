@@ -8,21 +8,21 @@ sudo git clone https://github.com/khous/hub.git
 cd hub/deploy 
 
 echo updating package information
-sudo apt-add-repository -y ppa:brightbox/ruby-ng >/dev/null 2>&1
-sudo apt-get -y update >/dev/null 2>&1
+sudo apt-add-repository -y ppa:brightbox/ruby-ng
+sudo apt-get -y update
 
 echo updating package
-sudo apt-get update >/dev/null
+sudo apt-get update
 echo installing build essential
 sudo apt-get install build-essential
 
 echo installing ruby
 sudo apt-get install -y ruby2.2 ruby2.2-dev
-sudo update-alternatives --set ruby /usr/bin/ruby2.2 >/dev/null 2>&1
-sudo update-alternatives --set gem /usr/bin/gem2.2 >/dev/null 2>&1
+sudo update-alternatives --set ruby /usr/bin/ruby2.2
+sudo update-alternatives --set gem /usr/bin/gem2.2
 
 echo installing Bundler
-gem install bundler -N >/dev/null 2>&1
+gem install bundler -N
 
 #Setup and install node
 curl -sL https://deb.nodesource.com/setup | sudo bash
