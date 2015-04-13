@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 #usage sh bootstrap.sh /path/to/key-file.pem user@123.0.0.1
-DEBIAN_FRONTEND=noninteractive
-
 cd /home/ubuntu
 
 sudo git clone https://github.com/khous/hub.git
@@ -14,7 +12,7 @@ sudo apt-get -y update
 echo updating package
 sudo apt-get update
 echo installing build essential
-sudo apt-get install build-essential
+sudo apt-get install -y build-essential
 
 echo installing ruby
 sudo apt-get install -y ruby2.2 ruby2.2-dev
@@ -43,10 +41,10 @@ sudo cp -r deploy/usr/* /usr
 sudo cp -r deploy/etc/* /etc
 
 #Install google auth proxy
-GOOGLE_AUTH_DIR_NAME=google_auth_proxy-1.1.1.darwin-amd64.go1.4.2.tar.gz
+GOOGLE_AUTH_DIR_NAME=google_auth_proxy-1.1.1.darwin-amd64.go1.4.2
 
-wget https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME
-tar xvzf $GOOGLE_AUTH_DIR_NAME && rm $GOOGLE_AUTH_DIR_NAME
+wget https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME.tar.gz
+tar xvzf $GOOGLE_AUTH_DIR_NAME.tar.gz && rm $GOOGLE_AUTH_DIR_NAME.tar.gz
 
 sudo cp $GOOGLE_AUTH_DIR_NAME/* /usr/local/18f/bin
 cd deploy
