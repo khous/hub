@@ -1,5 +1,11 @@
 #!/usr/bin/bash
 #usage sh bootstrap.sh /path/to/key-file.pem user@123.0.0.1
+DEBIAN_FRONTEND=noninteractive
+
+cd /home/ubuntu
+
+sudo git clone https://github.com/khous/hub.git
+cd hub/deploy 
 
 echo updating package information
 sudo apt-add-repository -y ppa:brightbox/ruby-ng >/dev/null 2>&1
@@ -18,7 +24,10 @@ sudo update-alternatives --set gem /usr/bin/gem2.2 >/dev/null 2>&1
 echo installing Bundler
 gem install bundler -N >/dev/null 2>&1
 
+#Setup and install node
+curl -sL https://deb.nodesource.com/setup | sudo bash
 sudo apt-get install -y nodejs
+
 sudo apt-get install -y npm
 sudo apt-get install -y nginx
 
@@ -36,7 +45,7 @@ sudo cp -r deploy/etc/* /etc
 #Install google auth proxy
 GOOGLE_AUTH_DIR_NAME=google_auth_proxy-1.1.1.darwin-amd64.go1.4.2.tar.gz
 
-wget --output-document=google-auth.tar.gz https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME
+wget https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME
 tar xvzf $GOOGLE_AUTH_DIR_NAME && rm $GOOGLE_AUTH_DIR_NAME
 
 sudo cp $GOOGLE_AUTH_DIR_NAME/* /usr/local/18f/bin
@@ -49,6 +58,4 @@ sudo node_modules/forever/bin/forever start hookshot.js -b master -c 'cd /home/u
 sudo service google_auth_proxy start
 # sudo nginx -s reload
 # Need to transfer server cert first :/
-EOF
-
 echo 'Copy the server ssl key and cert wherever, deploy github ssh keys, nginx -s reload'
