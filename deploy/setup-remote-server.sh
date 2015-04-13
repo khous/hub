@@ -17,7 +17,7 @@ sudo update-alternatives --set ruby /usr/bin/ruby2.2
 sudo update-alternatives --set gem /usr/bin/gem2.2
 
 echo installing Bundler
-gem install bundler -N
+sudo gem install bundler -N
 
 #Setup and install node
 curl -sL https://deb.nodesource.com/setup | sudo bash
@@ -27,10 +27,13 @@ sudo apt-get install -y npm
 sudo apt-get install -y nginx
 
 # Needed for docs generation.
-update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 cd /home/ubuntu/hub
-bundle install
+sudo bundle install
+
+#somewhere along the line I should fix the directory ownership crap
+sudo chown -R /home/ubuntu
 
 bundle exec jekyll b --config _config.yml,_config_public.yml
 
