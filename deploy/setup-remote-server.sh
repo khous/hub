@@ -1,8 +1,6 @@
 #!/usr/bin/bash
 #usage sh bootstrap.sh /path/to/key-file.pem user@123.0.0.1
 
-ssh -i $1 $2 << EOF
-
 echo updating package information
 sudo apt-add-repository -y ppa:brightbox/ruby-ng >/dev/null 2>&1
 sudo apt-get -y update >/dev/null 2>&1
@@ -22,14 +20,10 @@ gem install bundler -N >/dev/null 2>&1
 
 sudo apt-get install -y nodejs
 sudo apt-get install -y npm
-sudo apt-get install -y git
-
 sudo apt-get install -y nginx
 
 # Needed for docs generation.
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
-cd /home/ubuntu/
-git clone https://github.com/khous/hub.git
 
 cd /home/ubuntu/hub
 bundle install
@@ -53,6 +47,8 @@ sudo npm install
 sudo node_modules/forever/bin/forever start hookshot.js -b master -c 'cd /home/ubuntu/hub/; bundle exec jekyll b --config _config.yml,_config_public.yml' -p 4000
 
 sudo service google_auth_proxy start
-sudo nginx -s reload
-echo 'up now?'
+# sudo nginx -s reload
+# Need to transfer server cert first :/
 EOF
+
+echo 'Copy the server ssl key and cert wherever, deploy github ssh keys, nginx -s reload'
