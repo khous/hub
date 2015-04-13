@@ -53,7 +53,6 @@ sudo npm install
 #suboptimal, rebuilding both public and private site, probably only need private site
 sudo node_modules/forever/bin/forever start hookshot.js -b master -c 'cd /home/ubuntu/hub/; bundle exec jekyll b --config _config.yml,_config_public.yml' -p 4000
 
-sudo service google_auth_proxy start
 # sudo nginx -s reload
 # Need to transfer server cert first :/
-echo 'Copy the server ssl key and cert wherever, deploy github ssh keys, nginx -s reload'
+echo 'Copy the server ssl key and cert wherever, deploy github ssh keys, fill out google auth proxy cfg, nginx -s reload'
