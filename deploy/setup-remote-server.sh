@@ -43,8 +43,8 @@ sudo cp -r deploy/etc/* /etc
 #Install google auth proxy
 GOOGLE_AUTH_DIR_NAME=google_auth_proxy-1.1.1.linux-amd64.go1.4.2
 
-wget https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME.tar.gz
-tar xvzf $GOOGLE_AUTH_DIR_NAME.tar.gz && rm $GOOGLE_AUTH_DIR_NAME.tar.gz
+sudo wget https://github.com/bitly/google_auth_proxy/releases/download/v1.1.1/$GOOGLE_AUTH_DIR_NAME.tar.gz
+sudo tar xvzf $GOOGLE_AUTH_DIR_NAME.tar.gz && sudo rm $GOOGLE_AUTH_DIR_NAME.tar.gz
 
 sudo cp $GOOGLE_AUTH_DIR_NAME/* /usr/local/18f/bin
 cd deploy
